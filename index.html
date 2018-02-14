@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-controller="MyCtrl">
+       <table>
+           <thead>
+               <tr>
+                   <th>Name</th>
+                   <th>Age</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr ng-repeat="stu in students">
+                   <td>{{stu.name}}</td>
+                   <td>{{stu.age}}</td>
+                   <td>{{stu.seniority}}</td>
+                   <td><button ng-click="onclick(stu)">view Details</button></td>
+               </tr>
+           </tbody>
+       </table>
+       <div ng-show="selectedStudent">
+           <h2>Student Details</h2>
+           <p>Name:{{ selectedStudent.name | customName }}</p>
+           <p>Age:{{selectedStudent.age}}</p>
+           <p>Seniority:{{selectedStudent.seniority}}</p>
+       </div>
+    </div>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="app.service.js"></script>
+    <script src="app.filter.js"></script>
+</body>
+</html>
